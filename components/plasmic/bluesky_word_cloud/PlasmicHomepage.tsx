@@ -93,7 +93,6 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
-  h1?: Flex__<"h1">;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof AntdButton>;
   svg?: Flex__<"svg">;
@@ -273,13 +272,11 @@ function PlasmicHomepage__RenderFunc(props: {
             />
 
             <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
               className={classNames(
                 projectcss.all,
                 projectcss.h1,
                 projectcss.__wab_text,
-                sty.h1
+                sty.h1__hLzYp
               )}
             >
               {"Bluesky Word Cloud"}
@@ -651,6 +648,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   $steps["updateInputValue"] = await $steps["updateInputValue"];
                 }
               }}
+              type={"primary"}
             >
               <div
                 className={classNames(
@@ -659,7 +657,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   sty.text__tlMgJ
                 )}
               >
-                {"Create Word Cloud from your Posts"}
+                {"Create Word Cloud"}
               </div>
             </AntdButton>
           </div>
@@ -943,7 +941,7 @@ function PlasmicHomepage__RenderFunc(props: {
             },
             body: JSON.stringify({
                 text: "${text}",
-                scale: 1.2,
+                scale: 1,
                 width: 800,
                 height: 698,
                 colors: ['#426AC6', '#304065', '#0F172A', '#208BFE'],
@@ -1016,6 +1014,69 @@ function PlasmicHomepage__RenderFunc(props: {
               {"Handle not found. Please try again"}
             </div>
           ) : null}
+          {(() => {
+            try {
+              return !$state.cloudCreated && !$state.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__ua5Zd)}>
+              <h1
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1__xwhVg
+                )}
+              >
+                {"Create a word cloud of your Bluesky posts!"}
+              </h1>
+              <div className={classNames(projectcss.all, sty.freeBox___2TqZ)}>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__vD582)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"219px"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/bluesky_word_cloud/images/screenshot20241128At10740AmPng.png",
+                    fullWidth: 498,
+                    fullHeight: 174,
+                    aspectRatio: undefined
+                  }}
+                />
+
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__wSs71)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"435px"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/bluesky_word_cloud/images/screenshot20241128At10716AmPng.png",
+                    fullWidth: 832,
+                    fullHeight: 750,
+                    aspectRatio: undefined
+                  }}
+                />
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -1023,8 +1084,7 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "input", "button", "svg", "embedHtml"],
-  h1: ["h1"],
+  root: ["root", "input", "button", "svg", "embedHtml"],
   input: ["input"],
   button: ["button"],
   svg: ["svg"],
@@ -1035,7 +1095,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  h1: "h1";
   input: typeof AntdInput;
   button: typeof AntdButton;
   svg: "svg";
@@ -1127,7 +1186,6 @@ export const PlasmicHomepage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    h1: makeNodeComponent("h1"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
