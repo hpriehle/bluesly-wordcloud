@@ -190,7 +190,7 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -201,6 +201,31 @@ function PlasmicHomepage__RenderFunc(props: {
           key="twitter:title"
           name="twitter:title"
           content={PlasmicHomepage.pageMetadata.title}
+        />
+        <meta
+          key="description"
+          name="description"
+          content={PlasmicHomepage.pageMetadata.description}
+        />
+        <meta
+          key="og:description"
+          property="og:description"
+          content={PlasmicHomepage.pageMetadata.description}
+        />
+        <meta
+          key="twitter:description"
+          name="twitter:description"
+          content={PlasmicHomepage.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicHomepage.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicHomepage.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -897,7 +922,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-                text: "${text} Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud",
+                text: "${text}",
                 scale: 1,
                 width: 800,
                 height: 698,
@@ -1023,9 +1048,9 @@ function PlasmicHomepage__RenderFunc(props: {
                 displayWidth={"435px"}
                 loading={"lazy"}
                 src={{
-                  src: "/plasmic/bluesky_word_cloud/images/screenshot20241128At10716AmPng.png",
-                  fullWidth: 832,
-                  fullHeight: 750,
+                  src: "/plasmic/bluesky_word_cloud/images/screenshot20241128At111443PmPng.png",
+                  fullWidth: 844,
+                  fullHeight: 736,
                   aspectRatio: undefined
                 }}
               />
@@ -1229,8 +1254,9 @@ export const PlasmicHomepage = Object.assign(
     // Page metadata
     pageMetadata: {
       title: "Bluesky Word Cloud",
-      description: "",
-      ogImageSrc: "",
+      description: "Create a word cloud of your Bluesky posts!",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/625f2d47670470840b55143874fdec43.png",
       canonical: ""
     }
   }

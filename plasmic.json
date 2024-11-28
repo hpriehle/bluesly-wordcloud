@@ -631,6 +631,16 @@
           "id": "uOLDo9pZju3W",
           "name": "Bluesky Logo Icon.png",
           "filePath": "../public/plasmic/bluesky_word_cloud/images/blueskyLogoIconPng.png"
+        },
+        {
+          "id": "Y4fZ9K7lyhuR",
+          "name": "Screenshot 2024-11-28 at 11.14.43 PM.png",
+          "filePath": "../public/plasmic/bluesky_word_cloud/images/screenshot20241128At111443PmPng.png"
+        },
+        {
+          "id": "87rxrn3YBAkO",
+          "name": "Word Cloud Meta Image (1).png",
+          "filePath": "../public/plasmic/bluesky_word_cloud/images/wordCloudMetaImage1Png.png"
         }
       ],
       "indirect": false,
