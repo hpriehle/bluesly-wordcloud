@@ -66,10 +66,10 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -96,7 +96,6 @@ export type PlasmicHomepage__OverridesType = {
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof AntdButton>;
   svg?: Flex__<"svg">;
-  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultHomepageProps {}
@@ -251,6 +250,13 @@ function PlasmicHomepage__RenderFunc(props: {
           sty.root
         )}
       >
+        <Embed
+          className={classNames("__wab_instance", sty.embedHtml__kMgMv)}
+          code={
+            '<script defer data-domain="blueskywordcloud.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>'
+          }
+        />
+
         {(() => {
           try {
             return !$state.cloudCreated;
@@ -792,9 +798,7 @@ function PlasmicHomepage__RenderFunc(props: {
               }
             })() ? (
               <Embed
-                data-plasmic-name={"embedHtml"}
-                data-plasmic-override={overrides.embedHtml}
-                className={classNames("__wab_instance", sty.embedHtml)}
+                className={classNames("__wab_instance", sty.embedHtml__jGa5I)}
                 code={(() => {
                   try {
                     return (() => {
@@ -1140,11 +1144,10 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "input", "button", "svg", "embedHtml"],
+  root: ["root", "input", "button", "svg"],
   input: ["input"],
   button: ["button"],
-  svg: ["svg"],
-  embedHtml: ["embedHtml"]
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1154,7 +1157,6 @@ type NodeDefaultElementType = {
   input: typeof AntdInput;
   button: typeof AntdButton;
   svg: "svg";
-  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1245,7 +1247,6 @@ export const PlasmicHomepage = Object.assign(
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
-    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
