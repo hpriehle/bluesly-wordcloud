@@ -180,10 +180,9 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
   height: auto;
-  max-width: 40%;
-  min-width: 0;
+  max-width: 50%;
   border-radius: 12px;
   padding: 8px;
   border: 1px solid #208bfe;
@@ -194,10 +193,9 @@
   position: relative;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
   padding: 8px;
 }
 .img___8PVl2 {
@@ -230,10 +228,11 @@
 }
 .text__e0Tqh {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
+  white-space: pre;
+  padding-right: 0px;
 }
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
