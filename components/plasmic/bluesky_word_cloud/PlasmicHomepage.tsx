@@ -869,7 +869,7 @@ function PlasmicHomepage__RenderFunc(props: {
             ctx.drawImage(image, 0, 0);
             
             // Add watermark
-            ctx.font = '14px Tahoma';
+            ctx.font = '24px Tahoma';
             ctx.fillStyle = '#000000';
             const watermark = '@blueskywordcloud.com';
             const metrics = ctx.measureText(watermark);
@@ -897,7 +897,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-                text: "${text}",
+                text: "${text} Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud Word Cloud",
                 scale: 1,
                 width: 800,
                 height: 698,
