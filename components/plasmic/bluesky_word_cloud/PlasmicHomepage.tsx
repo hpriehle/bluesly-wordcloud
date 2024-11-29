@@ -252,9 +252,24 @@ function PlasmicHomepage__RenderFunc(props: {
       >
         <Embed
           className={classNames("__wab_instance", sty.embedHtml__kMgMv)}
-          code={
-            '<script defer data-domain="blueskywordcloud.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>'
-          }
+          code={(() => {
+            try {
+              return (() => {
+                function generateScriptTag() {
+                  return '<script defer data-domain="blueskywordcloud.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>';
+                }
+                return generateScriptTag();
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return '<script defer data-domain="blueskywordcloud.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>';
+              }
+              throw e;
+            }
+          })()}
         />
 
         {(() => {
