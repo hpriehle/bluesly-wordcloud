@@ -104,7 +104,7 @@
   height: 41px;
   margin-right: 25px;
 }
-.button:global(.__wab_instance) {
+.button___5ViO:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   height: 41px;
@@ -115,6 +115,14 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.select:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 56px;
+  margin-left: 10px;
+  flex-shrink: 0;
+  display: none;
 }
 .section__oKtB2 {
   display: grid;
@@ -347,6 +355,19 @@
 }
 .img___1CrH3 > picture > img {
   object-fit: cover;
+}
+.button___7Y5I7:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.text__qq5Ki {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 12px;
+  min-width: 0;
 }
 .text__e8Nrz {
   position: relative;

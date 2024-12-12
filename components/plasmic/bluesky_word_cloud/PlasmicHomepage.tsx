@@ -70,6 +70,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -94,7 +95,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: Flex__<"div">;
   input?: Flex__<typeof AntdInput>;
-  button?: Flex__<typeof AntdButton>;
+  select?: Flex__<typeof AntdSelect>;
   svg?: Flex__<"svg">;
 };
 
@@ -173,6 +174,12 @@ function PlasmicHomepage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "en"
       }
     ],
     [$props, $ctx, $refs]
@@ -362,9 +369,7 @@ function PlasmicHomepage__RenderFunc(props: {
             );
           })()}
           <AntdButton
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
+            className={classNames("__wab_instance", sty.button___5ViO)}
             disabled={false}
             onClick={async () => {
               const $steps = {};
@@ -665,6 +670,38 @@ function PlasmicHomepage__RenderFunc(props: {
               {"Create Word Cloud"}
             </div>
           </AntdButton>
+          <AntdSelect
+            data-plasmic-name={"select"}
+            data-plasmic-override={overrides.select}
+            className={classNames("__wab_instance", sty.select)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            defaultValue={"en"}
+            onChange={generateStateOnChangeProp($state, ["select", "value"])}
+            options={(() => {
+              const __composite = [
+                { value: null, label: null, type: "option" },
+                { value: null, label: null, type: "option" },
+                { type: "option", value: null, label: null }
+              ];
+              __composite["0"]["value"] = "en";
+              __composite["0"]["label"] = "\ud83c\uddec\ud83c\udde7";
+              __composite["1"]["value"] = "fr";
+              __composite["1"]["label"] = "\ud83c\uddeb\ud83c\uddf7";
+              __composite["2"]["value"] = "sp";
+              __composite["2"]["label"] = "\ud83c\uddea\ud83c\uddf8";
+              return __composite;
+            })()}
+            placeholder={"Select..."}
+            popupScopeClassName={sty["select__popup"]}
+            value={generateStateValueProp($state, ["select", "value"])}
+          />
         </div>
         {(() => {
           try {
@@ -1097,7 +1134,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       sty.link___3EPQj
                     )}
                     component={Link}
-                    href={"https://bsky.app/profile/riehle.co"}
+                    href={"https://myqrco.link/riehle"}
                     platform={"nextjs"}
                   >
                     {"Harrison"}
@@ -1124,6 +1161,51 @@ function PlasmicHomepage__RenderFunc(props: {
               }}
             />
           </div>
+          <AntdButton
+            className={classNames("__wab_instance", sty.button___7Y5I7)}
+            onClick={async () => {
+              const $steps = {};
+
+              $steps["goToHttpsMyqrcoLinkBmac"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: "https://myqrco.link/bmac"
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToHttpsMyqrcoLinkBmac"] != null &&
+                typeof $steps["goToHttpsMyqrcoLinkBmac"] === "object" &&
+                typeof $steps["goToHttpsMyqrcoLinkBmac"].then === "function"
+              ) {
+                $steps["goToHttpsMyqrcoLinkBmac"] = await $steps[
+                  "goToHttpsMyqrcoLinkBmac"
+                ];
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qq5Ki
+              )}
+            >
+              {"Support Me \u2764\ufe0f"}
+            </div>
+          </AntdButton>
           <div
             className={classNames(
               projectcss.all,
@@ -1143,7 +1225,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.link__qFsmP
                   )}
                   component={Link}
-                  href={"https://bsky.app/profile/riehle.co/post/3lbxalwbizc2f"}
+                  href={"https://myqrco.link/bskyhow"}
                   platform={"nextjs"}
                 >
                   {"How I built this"}
@@ -1159,9 +1241,9 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "input", "button", "svg"],
+  root: ["root", "input", "select", "svg"],
   input: ["input"],
-  button: ["button"],
+  select: ["select"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1170,7 +1252,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   input: typeof AntdInput;
-  button: typeof AntdButton;
+  select: typeof AntdSelect;
   svg: "svg";
 };
 
@@ -1260,7 +1342,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     input: makeNodeComponent("input"),
-    button: makeNodeComponent("button"),
+    select: makeNodeComponent("select"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicHomepage
